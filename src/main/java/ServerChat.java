@@ -6,10 +6,11 @@ import java.util.ArrayList;
 public class ServerChat {
     ArrayList<Client> listClients = new ArrayList<>();
     ServerSocket serverSocket;
+    static final int serverPort = 1234;
 
     public ServerChat() {
         try {
-            serverSocket = new ServerSocket(1234);
+            serverSocket = new ServerSocket(serverPort);
         } catch (IOException e) {
             e.printStackTrace();
         }
