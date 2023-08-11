@@ -22,12 +22,10 @@ public class NetClient extends JFrame implements KeyListener {
 	PrintWriter out;
 
 	NetClient() {
-		// Ńîçäŕĺě îęíî
 		super("Simple Chat client");
 		setSize(400, 500);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-		// Äîáŕâë˙ĺě íŕ îęíî ňĺęńňîâîĺ ďîëĺ
 		textArea = new JTextArea();
 		textArea.setBackground(Color.BLACK);
 		textArea.setForeground(Color.WHITE);
@@ -36,7 +34,6 @@ public class NetClient extends JFrame implements KeyListener {
 		scrollPane = new JScrollPane(textArea);
 		this.add(scrollPane);
 
-		// Ďîäńîĺäčí˙ĺěń˙ ę ńĺđâĺđó
 		connect();
 
 	}
@@ -53,8 +50,6 @@ public class NetClient extends JFrame implements KeyListener {
 			e.printStackTrace();
 		}
 		new Thread() {
-			// â îňäĺëüíîě ďîňîęĺ
-			// ďđčíčěŕĺě ńčěâîëű îň ńĺđâĺđŕ
 			public void run() {
 				while (true) {
 					try {
@@ -82,7 +77,6 @@ public class NetClient extends JFrame implements KeyListener {
 
 	@Override
 	public void keyTyped(KeyEvent arg0) {
-		// îňďđŕâë˙ĺě íŕďĺ÷ŕňŕííűé ńčěâîë â ńĺňü č íŕ ýęđŕí
 		out.print(arg0.getKeyChar());
 		out.flush();
 		
