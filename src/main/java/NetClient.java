@@ -14,7 +14,7 @@ import javax.swing.JTextArea;
 public class NetClient extends JFrame implements KeyListener {
 
 	final String serverIP = "127.0.0.1";
-	final int serverPort = 1234;
+	final int serverPort = ServerChat.serverPort;;
 
 	JTextArea textArea;
 	JScrollPane scrollPane;
@@ -22,12 +22,12 @@ public class NetClient extends JFrame implements KeyListener {
 	PrintWriter out;
 
 	NetClient() {
-		// Создаем окно
+		// ЕѓГ®Г§Г¤Е•ДєД› Г®Д™Г­Г®
 		super("Simple Chat client");
 		setSize(400, 500);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-		// Добавляем на окно текстовое поле
+		// Г„Г®ГЎЕ•ГўГ«Л™ДєД› Г­Е• Г®Д™Г­Г® Е€ДєД™Е„Е€Г®ГўГ®Дє ДЏГ®Г«Дє
 		textArea = new JTextArea();
 		textArea.setBackground(Color.BLACK);
 		textArea.setForeground(Color.WHITE);
@@ -36,7 +36,7 @@ public class NetClient extends JFrame implements KeyListener {
 		scrollPane = new JScrollPane(textArea);
 		this.add(scrollPane);
 
-		// Подсоединяемся к серверу
+		// ДЋГ®Г¤Е„Г®ДєГ¤ДЌГ­Л™ДєД›Е„Л™ Д™ Е„ДєД‘ГўДєД‘Гі
 		connect();
 
 	}
@@ -53,8 +53,8 @@ public class NetClient extends JFrame implements KeyListener {
 			e.printStackTrace();
 		}
 		new Thread() {
-			// в отдельном потоке
-			// принимаем символы от сервера
+			// Гў Г®Е€Г¤ДєГ«ГјГ­Г®Д› ДЏГ®Е€Г®Д™Дє
+			// ДЏД‘ДЌГ­ДЌД›Е•ДєД› Е„ДЌД›ГўГ®Г«Е± Г®Е€ Е„ДєД‘ГўДєД‘Е•
 			public void run() {
 				while (true) {
 					try {
@@ -82,7 +82,7 @@ public class NetClient extends JFrame implements KeyListener {
 
 	@Override
 	public void keyTyped(KeyEvent arg0) {
-		// отправляем напечатанный символ в сеть и на экран
+		// Г®Е€ДЏД‘Е•ГўГ«Л™ДєД› Г­Е•ДЏДєГ·Е•Е€Е•Г­Г­Е±Г© Е„ДЌД›ГўГ®Г« Гў Е„ДєЕ€Гј ДЌ Г­Е• ГЅД™Д‘Е•Г­
 		out.print(arg0.getKeyChar());
 		out.flush();
 		
